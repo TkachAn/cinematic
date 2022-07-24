@@ -5,7 +5,7 @@
   "homepage": "https://TkachAn.github.io/cinematic",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /cinematics-filmoteka/"
+    "build": "parcel build src/*.html --public-url /cinematic/"
   },
   "repository": {
     "type": "git",
