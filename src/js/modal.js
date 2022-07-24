@@ -1,11 +1,14 @@
-import { list, lib, modalBackdrop, btnOnModalTeam, movieModal } from './refs';
+import { list, lib, modalBackdrop, btnOnModalTeam, movieModal} from './refs';
 import { modalMoviemarkup, modalTeamLayout } from './modalMovieMarkup';
 import { addListLibrary, funAddQueue } from './storage';
-
+ 
 import { libMarkup } from './lib';
+
+
 
 import team from './team-info';
 import { trailerBtnListener } from './trailer';
+
 
 if (list) {
   list.addEventListener('click', createModal);
@@ -34,7 +37,7 @@ function createModal(event) {
     onBntAddLibray();
 
     // onBntAddLibray(selectedMovieId);
-    trailerBtnListener(selectedMovieId);
+    trailerBtnListener(selectedMovieId)
   }
 }
 
@@ -44,9 +47,7 @@ function onBntAddLibray() {
   const btnAddWatched = document.querySelector('.modal__add-watched');
   const btnAddQueue = document.querySelector('.modal__add-queue');
   const idMovie = Number(modalBackdrop.firstElementChild.dataset.id);
-  const dataWebLocation = document
-    .querySelector('body')
-    .getAttribute('data-weblocation');
+  const dataWebLocation = document.querySelector('body').getAttribute('data-weblocation');
 
   if (dataWebLocation === 'library') {
     setBtnLibrayLocalData(btnAddWatched, btnAddQueue);
@@ -120,9 +121,8 @@ function updataLibery(e, btn, list) {
     // const dataBtn = btn.dataset.liery;
     // if (dataBtn === 'true') {
       btn.setAttribute('disabled', true);
-    // }
-    // else {
-    //   return;
+    // } else {
+      // return
     // }
   }
   return;
@@ -138,12 +138,12 @@ function setBtnLibrayLocalData(btnAddWatched, btnAddQueue) {
     btnAddWatched.dataset.liery = false;
     btnAddQueue.dataset.liery = true;
   }
-}
+} 
 
 function openModal() {
   modalBackdrop.classList.add('modal-open');
   document.body.style.overflow = 'hidden';
-  document.body.classList.add('modal-open');
+	document.body.classList.add('modal-open')
 
   setCloseOptionModal();
 }
@@ -173,16 +173,17 @@ function offModalForClickBeackdrop(e) {
 }
 
 function offModal() {
-  modalBackdrop.firstElementChild.classList.remove('team-modal');
-  modalBackdrop.firstElementChild.classList.add('modal');
+	modalBackdrop.firstElementChild.classList.remove('team-modal')
+	modalBackdrop.firstElementChild.classList.add('modal')
   modalBackdrop.classList.remove('modal-open');
   document.body.style.overflow = 'overlay';
-  document.body.classList.remove('modal-open');
+	document.body.classList.remove('modal-open')
   document.removeEventListener('keydown', offModalForEscape);
   modalBackdrop.removeEventListener('keydown', offModalForClickBeackdrop);
   modalBackdrop.firstElementChild.dataset.id = '';
 
-  movieModal.innerHTML = '';
+  movieModal.innerHTML = ''
+  
 }
 
 // модалка команды
@@ -212,29 +213,23 @@ function onModalTeam(e) {
 
   renderTeamModal();
   openModal();
-  modalBackdrop.firstElementChild.classList.add('team-modal');
-  modalBackdrop.firstElementChild.classList.remove('modal');
+	modalBackdrop.firstElementChild.classList.add('team-modal')
+	modalBackdrop.firstElementChild.classList.remove('modal')
 }
 
 function renderTeamModal() {
-  modalBackdrop.firstElementChild.innerHTML = '';
-  modalTeamList.innerHTML = '';
-  titleTeam.innerHTML = '';
-  modalBackdrop.firstElementChild.insertAdjacentElement('beforeend', titleTeam);
-  titleTeam.classList.add('team-modal__title');
-  titleTeam.insertAdjacentHTML('beforeend', 'Cinematics GO IT JS #48');
+	modalBackdrop.firstElementChild.innerHTML=''
+  modalTeamList.innerHTML = ''
+  titleTeam.innerHTML = ''
+  modalBackdrop.firstElementChild.insertAdjacentElement('beforeend', titleTeam)
+  titleTeam.classList.add('team-modal__title')
+  titleTeam.insertAdjacentHTML('beforeend', 'Cinematics GO IT JS #48')
 
-  modalBackdrop.firstElementChild.insertAdjacentElement(
-    'beforeend',
-    modalTeamList
-  );
-  modalBackdrop.firstElementChild.insertAdjacentHTML(
-    'beforeend',
-    modalCloseBtn
-  );
-  modalTeamList.classList.add('team-modal__list');
-  team.map(member => {
-    const markup = `<li class="team-modal__item">
+	modalBackdrop.firstElementChild.insertAdjacentElement('beforeend', modalTeamList)
+	modalBackdrop.firstElementChild.insertAdjacentHTML('beforeend', modalCloseBtn)
+	modalTeamList.classList.add('team-modal__list')
+	team.map((member) => {
+		const markup = `<li class="team-modal__item">
 		<img src="${member.img}" class="team-modal__pic">
 		<h2 class="team-modal__name">${member.name}</h2>
     <p class="team-modal__role">${member.role}</p>
@@ -251,9 +246,9 @@ function renderTeamModal() {
       </svg>
 		</a>
 		</div>
-		</li>`;
-    modalTeamList.insertAdjacentHTML('beforeend', markup);
-  });
+		</li>`
+		modalTeamList.insertAdjacentHTML('beforeend', markup)
+	})
 }
 
 function setThemOnModal() {
