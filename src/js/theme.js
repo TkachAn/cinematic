@@ -19,19 +19,19 @@ themeBtn.addEventListener('click', () => {
 		moon.style.visibility = 'hidden';
 		sun.style.visibility = 'visible';
 		saveLs('theme', 'dark');
-		document.querySelector('.modal').classList.add('dark')
-		if(location.pathname.split("/").slice(-1) == 'index.html') {
-			document.querySelector('.pagination-section').classList.add('dark');
-		}
+		document.querySelector('.modal').classList.add('dark');
+		// if(location.pathname.split("/").slice(-1) == 'index.html') {
+		// 	document.querySelector('.pagination-section').classList.add('dark');
+		// }
 	} else {
 		document.body.classList.remove('dark');
 		sun.style.visibility = 'hidden';
 		moon.style.visibility = 'visible';
 		saveLs('theme', 'light');
-		document.querySelector('.modal').classList.remove('dark')
-		if(location.pathname.split("/").slice(-1) == 'index.html') {
-			document.querySelector('.pagination-section').classList.remove('dark');
-		}
+		document.querySelector('.modal').classList.remove('dark');
+		// if(location.pathname.split("/").slice(-1) == 'index.html') {
+		// 	document.querySelector('.pagination-section').classList.remove('dark');
+		// }
 	}
 });
 
