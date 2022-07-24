@@ -2,11 +2,11 @@ import { loadLs, saveLs } from './storage';
 const themeBtn = document.getElementById('toggle-theme-btn');
 const sun = document.querySelector('.sun');
 const moon = document.querySelector('.moon');
-
+const bodyClass = document.querySelector('.body')
 
 const themeValue = loadLs('theme') ? loadLs('theme') : 'light';
 saveLs('theme', themeValue);
-document.body.classList.add(themeValue);
+bodyClass.classList.add(themeValue);
 if (themeValue === 'light') {
 	sun.style.visibility = 'hidden';
 } else {
