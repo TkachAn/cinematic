@@ -13,8 +13,9 @@ if (btnWatched !== null) {
 	  libMarkup('Queue');
 	});
 
-	const indexWatched = loadLs('Watched');
-	const indexQueue = loadLs('Queue');
+	const indexWatched = loadLs('Watched') ? loadLs('Watched') : [];
+	const indexQueue = loadLs('Queue') ?loadLs('Queue') : [];
+	
 
 	if ((indexQueue || indexWatched) && indexQueue > indexWatched) {
 		document.addEventListener("DOMContentLoaded", () => {
@@ -28,7 +29,7 @@ if (btnWatched !== null) {
 }
 
 function funEmptyLib(libName) {
-	const libIndex = loadLs(libName);//'Queue'//'Watched'
+	const libIndex = loadLs(libName)?loadLs(libName):[];//'Queue'//'Watched'
 	if (libName === 'Queue') {
 		btnQueue.classList.add('btn-orange');
 		btnWatched.classList.remove('btn-orange');
