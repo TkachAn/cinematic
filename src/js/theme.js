@@ -5,6 +5,7 @@ const moon = document.querySelector('.moon');
 const bodyClass = document.querySelector('.body')
 
 const themeValue = loadLs('theme') ? loadLs('theme') : 'light';
+console.log('themeValue',themeValue);
 saveLs('theme', themeValue);
 bodyClass.classList.add(themeValue);
 if (themeValue === 'light') {
