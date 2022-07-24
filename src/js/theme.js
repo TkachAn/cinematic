@@ -21,7 +21,7 @@ themeBtn.addEventListener('click', () => {
 		saveLs('theme', 'dark');
 		document.querySelector('.modal').classList.add('dark')
 		if(location.pathname.split("/").slice(-1) == 'index.html') {
-			document.querySelector('.pagination-section').classList.add('dark')
+			document.querySelector('.pagination-section').classList.add('dark');
 		}
 	} else {
 		document.body.classList.remove('dark');
@@ -30,7 +30,7 @@ themeBtn.addEventListener('click', () => {
 		saveLs('theme', 'light');
 		document.querySelector('.modal').classList.remove('dark')
 		if(location.pathname.split("/").slice(-1) == 'index.html') {
-			document.querySelector('.pagination-section').classList.remove('dark')
+			document.querySelector('.pagination-section').classList.remove('dark');
 		}
 	}
 });
